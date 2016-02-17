@@ -5,5 +5,6 @@ use_frameworks!
 
 target 'social-network' do
 pod 'Firebase', '>= 2.5.0'
+pod 'Alamofire', '~> 3.0'
 end
 

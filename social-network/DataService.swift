@@ -9,11 +9,31 @@
 import Foundation
 import Firebase
 
+let URL_BASE = "https://social-network-pkj.firebaseio.com"
+
 class DataService {
     static let ds = DataService()
     
-    private var _REF_BASE = Firebase(url: "https://social-network-pkj.firebaseio.com")
+    private var _REF_BASE = Firebase(url: "\(URL_BASE)")
+    private var _REF_USERS = Firebase(url: "\(URL_BASE)/users")
+    private var _REF_POSTS = Firebase(url: "\(URL_BASE)/posts")
+    
     var REF_BASE: Firebase {
         return _REF_BASE
     }
+    
+    var REF_POSTS: Firebase {
+        return _REF_POSTS
+    }
+    
+    var REF_USERS: Firebase {
+        return _REF_USERS
+    }
+    
+    func createFirebaseUser(uid: String, user: Dictionary<String, String>) {
+        REF_USERS.childByAppendingPath(uid).setValue(user) // grab a reference to that path. If it doesn't exist doesn't matter because we will create it when we save it
+        // automatically updates in Firebase
+        
+    }
+    
 }

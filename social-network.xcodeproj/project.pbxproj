@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AB7D5D29A2D730228D3B0955 /* Pods_social_network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3861763AE5C76176FC275C6A /* Pods_social_network.framework */; };
+		B234DBAD1C751F6C00D59C16 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B234DBAC1C751F6C00D59C16 /* Post.swift */; };
+		B26F0BDD1C7442A6004D11A7 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26F0BDC1C7442A6004D11A7 /* FeedVC.swift */; };
+		B26F0BDF1C7443A5004D11A7 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26F0BDE1C7443A5004D11A7 /* PostCell.swift */; };
 		B29F01971C5F150200617FC8 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29F01961C5F150200617FC8 /* DataService.swift */; };
 		B2DE35FC1C5EF2F60010CB89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DE35FB1C5EF2F60010CB89 /* AppDelegate.swift */; };
 		B2DE35FE1C5EF2F60010CB89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DE35FD1C5EF2F60010CB89 /* ViewController.swift */; };
@@ -30,6 +33,9 @@
 /* Begin PBXFileReference section */
 		244F6265525027D5FC2338DA /* Pods-social-network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-social-network.debug.xcconfig"; path = "Pods/Target Support Files/Pods-social-network/Pods-social-network.debug.xcconfig"; sourceTree = "<group>"; };
 		3861763AE5C76176FC275C6A /* Pods_social_network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_social_network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B234DBAC1C751F6C00D59C16 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		B26F0BDC1C7442A6004D11A7 /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		B26F0BDE1C7443A5004D11A7 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		B29F01961C5F150200617FC8 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		B2DE35F81C5EF2F60010CB89 /* social-network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "social-network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2DE35FB1C5EF2F60010CB89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				B2DE35FD1C5EF2F60010CB89 /* ViewController.swift */,
+				B26F0BDC1C7442A6004D11A7 /* FeedVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -126,6 +133,7 @@
 				B2DE36191C5EF9660010CB89 /* MaterialView.swift */,
 				B2DE361E1C5F00090010CB89 /* MaterialButton.swift */,
 				B2DE36241C5F04D40010CB89 /* MaterialTextField.swift */,
+				B26F0BDE1C7443A5004D11A7 /* PostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -133,6 +141,7 @@
 		B2DE360F1C5EF3130010CB89 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B234DBAC1C751F6C00D59C16 /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -314,9 +323,12 @@
 				B29F01971C5F150200617FC8 /* DataService.swift in Sources */,
 				B2DE361A1C5EF9660010CB89 /* MaterialView.swift in Sources */,
 				B2DE35FE1C5EF2F60010CB89 /* ViewController.swift in Sources */,
+				B26F0BDD1C7442A6004D11A7 /* FeedVC.swift in Sources */,
+				B26F0BDF1C7443A5004D11A7 /* PostCell.swift in Sources */,
 				B2DE35FC1C5EF2F60010CB89 /* AppDelegate.swift in Sources */,
 				B2DE361D1C5EF9C70010CB89 /* Constants.swift in Sources */,
 				B2DE361F1C5F00090010CB89 /* MaterialButton.swift in Sources */,
+				B234DBAD1C751F6C00D59C16 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
