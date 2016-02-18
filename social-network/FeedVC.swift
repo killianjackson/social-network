@@ -9,13 +9,17 @@
 import UIKit
 import Firebase
 
-class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [Post]()
     static var imageCache = NSCache()
+    var imagePicker: UIImagePickerController!
+    @IBOutlet weak var postField: MaterialTextField!
+    @IBOutlet weak var imageSelectorImg: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +28,11 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         
         tableView.estimatedRowHeight = 354
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
         
         // .Value represents the event that any data changed in Firebase with respect to REF_POSTS path
+    
         DataService.ds.REF_POSTS.observeEventType(.Value, withBlock: { snapshot in
             print(snapshot.value)
             
@@ -84,5 +91,17 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+        imageSelectorImg.image = image
+    }
+    
+    @IBAction func selectImage(sender: AnyObject) {
+        presentViewController(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func makePost(sender: AnyObject) {
+    }
 
 }
