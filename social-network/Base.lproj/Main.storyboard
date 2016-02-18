@@ -203,7 +203,7 @@
             </objects>
             <point key="canvasLocation" x="461" y="412"/>
         </scene>
-        <!--FeedVC-->
+        <!--the social network-->
         <scene sceneID="1zM-gP-aQY">
             <objects>
                 <viewController id="Pz7-yY-iMK" customClass="FeedVC" customModule="social_network" customModuleProvider="target" sceneMemberID="viewController">
@@ -393,7 +393,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="d2A-D8-Rgv"/>
+                    <navigationItem key="navigationItem" title="the social network" id="d2A-D8-Rgv"/>
                     <connections>
                         <outlet property="imageSelectorImg" destination="9Sp-mi-3Xd" id="6h7-d2-ceH"/>
                         <outlet property="postField" destination="ETN-I6-p6J" id="MzJ-lw-0p4"/>
@@ -418,6 +418,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.12941176469999999" green="0.58823529409999997" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="25"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

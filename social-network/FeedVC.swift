@@ -12,6 +12,8 @@ import Firebase
 class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [Post]()
