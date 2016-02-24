@@ -104,8 +104,8 @@
 		B2DE35FA1C5EF2F60010CB89 /* social-network */ = {
 			isa = PBXGroup;
 			children = (
-				B29F01951C5F14F700617FC8 /* Services */,
 				B2DE36261C5F0B9E0010CB89 /* Frameworks */,
+				B29F01951C5F14F700617FC8 /* Services */,
 				B2DE361B1C5EF9B60010CB89 /* Utilities */,
 				B2DE36101C5EF3180010CB89 /* Resources */,
 				B2DE360F1C5EF3130010CB89 /* Model */,

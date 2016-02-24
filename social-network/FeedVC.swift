@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Alamofire
 
 class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -17,6 +18,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [Post]()
+    var imageSelected = false
     static var imageCache = NSCache()
     var imagePicker: UIImagePickerController!
     @IBOutlet weak var postField: MaterialTextField!
@@ -96,6 +98,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
         imageSelectorImg.image = image
+        imageSelected = true
     }
     
     @IBAction func selectImage(sender: AnyObject) {
@@ -104,6 +107,86 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     }
     
     @IBAction func makePost(sender: AnyObject) {
-    }
+        if let text = postField.text where text != "" {
+            if let image = imageSelectorImg.image where imageSelected == true {
+                let urlStr = "https://post.imageshack.us/upload_api.php"
+                let url = NSURL(string: urlStr)!
+                let imgData = UIImageJPEGRepresentation(image, 0.2)!
+                let keyData = "KO5VHDLZb7c1e1a8d979e3a1f0bc3c46f23b6029".dataUsingEncoding(NSUTF8StringEncoding)!
+                let keyJSON = "json".dataUsingEncoding(NSUTF8StringEncoding)!
+                Alamofire.upload(.POST, url, multipartFormData: { MultipartFormData in
+                    MultipartFormData.appendBodyPart(data: imgData, name: "fileupload", fileName: "image", mimeType: "image/jpg")
+                    MultipartFormData.appendBodyPart(data: keyData, name: "key")
+                    MultipartFormData.appendBodyPart(data: keyJSON, name: "format")
 
+                    }) { encodingResult in
+                        
+                        switch encodingResult {
+                        case .Success(let upload, _, _):
+                            upload.responseJSON { response in
+                                
+                                if let info = response.result.value as? Dictionary<String,AnyObject> {
+                                    
+                                    if let links = info["links"] as? Dictionary<String,AnyObject> {
+                                        
+                                        if let imgLink = links["image_link"] as? String {
+                                            
+                                            print("LINK: \(imgLink)")
+                                            self.postToFirebase(imgLink)
+                                            
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                                
+                            }
+                        case .Failure(let error):
+                            print(error)
+                        }
+                }
+            } else {
+                // just a description, no image attached to post
+                self.postToFirebase(nil)
+            }
+
+        }
+    }
+    
+    func postToFirebase(imgURL: String?) {
+        var post: Dictionary<String, AnyObject> = [
+            "description": postField.text!,
+            "likes": 0
+        ]
+        if imgURL != nil {
+            post["imageURL"] = imgURL
+        }
+        
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        postField.text = ""
+        imageSelectorImg.image = UIImage(named: "camera")
+        imageSelected = false
+        
+        tableView.reloadData()
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

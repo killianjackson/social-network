@@ -221,10 +221,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vXh-DW-9qG">
                                         <rect key="frame" x="8" y="8" width="544" height="37"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="What's your post about?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ETN-I6-p6J" customClass="MaterialTextField" customModule="social_network" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What's your post about?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ETN-I6-p6J" customClass="MaterialTextField" customModule="social_network" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="437" height="37"/>
                                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -364,6 +364,7 @@
                                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="descriptionText" destination="wuV-VS-KGA" id="2mt-QS-xDR"/>
+                                            <outlet property="likeImage" destination="bju-92-W4m" id="eyu-Wk-7uA"/>
                                             <outlet property="likesLabel" destination="g5p-FH-XaK" id="kZf-pX-6b1"/>
                                             <outlet property="postImage" destination="J77-yj-14c" id="gpn-k9-FKH"/>
                                             <outlet property="profileImage" destination="HMO-HL-uMi" id="gTJ-hf-N2c"/>
@@ -393,7 +394,11 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="the social network" id="d2A-D8-Rgv"/>
+                    <navigationItem key="navigationItem" title="the social network" id="d2A-D8-Rgv">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="gc6-sU-hDW">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageSelectorImg" destination="9Sp-mi-3Xd" id="6h7-d2-ceH"/>
                         <outlet property="postField" destination="ETN-I6-p6J" id="MzJ-lw-0p4"/>
